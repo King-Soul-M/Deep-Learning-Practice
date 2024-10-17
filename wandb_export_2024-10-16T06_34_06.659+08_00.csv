@@ -1,6 +1,0 @@
-"Name","learning_rate","neurons_FC1","neurons_FC2","optimizer","val_acc"
-"dazzling-sweep-5","0.001","256","128","adam","0.7390000224113464"
-"scarlet-sweep-4","0.1","256","128","sgd","0.1040000021457672"
-"leafy-sweep-3","0.1","512","64","sgd","0.10660000145435332"
-"skilled-sweep-2","0.1","256","64","sgd","0.1071999967098236"
-"vivid-sweep-1","0.1","512","64","sgd","0.09759999811649324"
