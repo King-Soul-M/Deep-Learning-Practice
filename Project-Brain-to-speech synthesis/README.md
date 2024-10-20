@@ -16,7 +16,7 @@ The scripts require Python >= 3.8 and the following packages
 * [matplotlib]( https://matplotlib.org/)
 
 ## Dataset
-* [Dataset]([https://pandas.pydata.org/](https://osf.io/nrgx6/))
+* [Dataset](https://osf.io/nrgx6/)
 
 ## What we need to do
 First, we need to perform data preprocessing to address noise and erroneous values. Subsequently, an appropriate model is selected, followed by model training. Through the use of visualizations, suitable parameters are tuned to effectively enhance the accuracy of the results.
