@@ -25,3 +25,5 @@ First, we performed data preprocessing, created a SpectrogramDataset class using
 PESQ (Perceptual Evaluation of Speech Quality) is an objective metric for assessing speech signal quality. It compares a degraded speech signal to an original reference signal and provides a score correlating with human perception. The PESQ score ranges from -0.5 to 4.5, with higher scores indicating better quality. A score of 4.5 represents the best quality, while scores below 2.0 indicate significant degradation. PESQ is commonly used to evaluate speech enhancement systems and voice communication systems
 
 ## Some training results
+https://github.com/King-Soul-M/Deep-Learning-Practice/tree/King-Soul-M-patch-1
+Here are two audios and one picture
