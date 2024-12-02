@@ -27,3 +27,5 @@ PESQ (Perceptual Evaluation of Speech Quality) is an objective metric for assess
 ## Some training results
 https://github.com/King-Soul-M/Deep-Learning-Practice/tree/King-Soul-M-patch-1
 Here are two audios and one picture
+We tried another optimization using a linear regression model, but it was not completely successful yet.
+https://gist.github.com/King-Soul-M/f7bbe395d05cd61a2d8e50defb99e3e5
