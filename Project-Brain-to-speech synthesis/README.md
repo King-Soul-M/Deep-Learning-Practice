@@ -19,7 +19,9 @@ The scripts require Python >= 3.8 and the following packages
 * [Dataset](https://osf.io/nrgx6/)
 
 ## What we need to do
-First, we need to perform data preprocessing to address noise and erroneous values. Subsequently, an appropriate model is selected, followed by model training. Through the use of visualizations, suitable parameters are tuned to effectively enhance the accuracy of the results.
+First, we performed data preprocessing, created a SpectrogramDataset class using the CNN model, and passed the calculated magnitude as both input and target to the neural network. We optimized hyperparameters, adjusted the learning rate, and used PESQ for audio quality evaluation. Additionally, we utilized matplotlib for visualization. During this process, we encountered several issues: 1. the input size problem in the convolutional layers, which was addressed through multiple adjustments; 2. ensuring proper configuration of STFT and ISTFT parameters to enable correct conversion between audio and spectrogram. Future work involves further optimization of the model and implementing cross-speaker training and synthesis.
 
-## Current progress description
-Dear professor, because we enrolled late, we have many courses behind us, and we are currently undergoing midterm exams. We have not completed the data preprocessing. We will catch up as soon as possible to ensure that we can complete this experiment efficiently within the specified time.
+## PESQ
+PESQ (Perceptual Evaluation of Speech Quality) is an objective metric for assessing speech signal quality. It compares a degraded speech signal to an original reference signal and provides a score correlating with human perception. The PESQ score ranges from -0.5 to 4.5, with higher scores indicating better quality. A score of 4.5 represents the best quality, while scores below 2.0 indicate significant degradation. PESQ is commonly used to evaluate speech enhancement systems and voice communication systems
+
+## Some training results
