@@ -12,24 +12,7 @@ import reconstructWave as rW
 
 
 def createAudio(spectrogram, audiosr=16000, winLength=0.05, frameshift=0.01):
-    """
-    Create a reconstructed audio waveform
 
-    Parameters
-    ----------
-    spectrogram: array
-        Spectrogram of the audio
-    sr: int
-        Sampling rate of the audio
-    windowLength: float
-        Length of window (in seconds) in which spectrogram was calculated
-    frameshift: float
-        Shift (in seconds) after which next window was extracted
-    Returns
-    ----------
-    scaled: array
-        Scaled audio waveform
-    """
     mfb = mel.MelFilterBank(int((audiosr * winLength) / 2 + 1), spectrogram.shape[1], audiosr)
     nfolds = 10
     hop = int(spectrogram.shape[0] / nfolds)
@@ -44,17 +27,16 @@ def createAudio(spectrogram, audiosr=16000, winLength=0.05, frameshift=0.01):
     return scaled
 
 
-# Build a simple neural network for regression, with an additional ANN layer
+# ANN layer
 def build_nn(input_shape):
     model = models.Sequential()
     model.add(layers.Dense(512, activation='relu', input_shape=(input_shape,)))
-    model.add(layers.Dropout(0.2))  # Dropout to prevent overfitting
+    model.add(layers.Dropout(0.2))
     model.add(layers.Dense(256, activation='relu'))
-    model.add(layers.Dropout(0.2))  # Dropout to prevent overfitting
+    model.add(layers.Dropout(0.2))
     model.add(layers.Dense(128, activation='relu'))
-
-    # Add an additional ANN layer (new layer)
-    model.add(layers.Dense(64, activation='relu'))  # New ANN layer with 64 neurons
+    model.add(layers.Dropout(0.2))
+    model.add(layers.Dense(64, activation='relu'))
 
     # Output layer, linear activation
     model.add(layers.Dense(input_shape, activation='linear'))
@@ -77,7 +59,6 @@ if __name__ == "__main__":
     pca = PCA()
     numComps = 50
 
-    # Initialize empty matrices for correlation results, randomized controls, and amount of explained variance
     allRes = np.zeros((len(pts), nfolds, 23))
     explainedVariance = np.zeros((len(pts), nfolds))
     numRands = 1000
@@ -115,7 +96,6 @@ if __name__ == "__main__":
 
             # Train the neural network
             nn_model.fit(trainData, spectrogram[train, :], epochs=20, batch_size=32, verbose=0)
-            # Predict the reconstructed spectrogram for the test data
             rec_spec[test, :] = nn_model.predict(testData)
 
             # Evaluate reconstruction of this fold
